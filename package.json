@@ -1,0 +1,42 @@
+{
+    "name": "imagemarker.js",
+    "version": "0.0.1",
+    "description": "An intuitive tool for adding annotates to the image",
+    "main": "dist/imagemarker.js",
+    "scripts": {
+        "test": "mocha --require babel-core/register",
+        "dev": "webpack-dev-server --mode development --config webpack.config.dev.js",
+        "build": "webpack --mode production --config webpack.config.build.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/reinit/imagemarker.js.git"
+    },
+    "keywords": [
+        "Image Marker",
+        "Marker"
+    ],
+    "author": "Rui NI <ranqus@gmail.com>",
+    "license": "TODO: Determine the license",
+    "bugs": {
+        "url": "https://github.com/reinit/imagenotation/issues"
+    },
+    "homepage": "https://github.com/reinit/imagenotation#readme",
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-minify-webpack-plugin": "^0.3.1",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-env": "^1.7.0",
+        "css-loader": "^2.1.1",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^3.2.0",
+        "mini-css-extract-plugin": "^0.5.0",
+        "mocha": "^6.1.3",
+        "style-loader": "^0.23.1",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.3.0",
+        "webpack-dev-server": "^3.2.1"
+    },
+    "dependencies": {}
+}

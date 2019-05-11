@@ -1,6 +1,6 @@
 imagemarker.js
 ================================================================================
-A more intuitive tool for adding annotates to the image
+An intuitive tool for adding annotates to the image
 
 Install
 --------------------------------------------------------------------------------

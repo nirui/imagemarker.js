@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    color: #000;
+}
+
+html, body {
+    height: 100%;
+}
+
+@keyframes background-anim {
+    0% {background-position: 10% 0%}
+    50% {background-position: 91% 100%}
+    100% {background-position: 10% 0%}
+}
+
+body {
+    background: #055 linear-gradient(45deg, #055, #656, #923);
+    background-size: 200% 200%;
+    animation: background-anim 30s ease infinite;
+    overflow: auto;
+}
+
+.controls {
+    border: 1px solid #133;
+    border-radius: 5px;
+    text-align: center;
+    float: left;
+    background: rgba(17, 64, 74, 0.76);
+    text-shadow: 1px 1px 0 #133;
+}
+
+.controls a {
+    display: block;
+    float: left;
+    padding: 5px 15px;
+    text-decoration: none;
+    font-size: 0.85em;
+    color: #fff;
+    border-left: 1px solid #133;
+}
+
+.controls a.disabled {
+    background: rgba(23, 53, 60, 0.76);
+    color: #bbb;
+}
+
+.controls a:first-child {
+    border-left: none;
+}
+
+#floater {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 0px;
+    background: rgba(255, 255, 0, 0.3);
+    overflow: hidden;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    font-size: 0.75em;
+    box-shadow: 0 0 3px 0 #000;
+}
+
+#hd {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(32, 153, 153, 0.5) linear-gradient(90deg, rgba(0, 85, 85, 0.5), rgba(34, 0, 34, 0.5));
+    overflow: auto;
+}
+
+#hd h1 {
+    padding: 15px 0;
+    margin: 0 15px;
+    font-size: 0.8em;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    float: left;
+}
+
+#hd #draws {
+    margin: 9px;
+    background: rgba(55, 104, 117, 0.76);
+    border: 1px solid #144;
+}
+
+#hd #draws a {
+    border-left: 1px solid #144;
+}
+
+#hd #draws a.disabled {
+    background: rgba(28, 71, 81, 0.76);
+}
+
+#hd #draws a:first-child {
+    border-left: none
+}
+
+#hd #controls {
+    margin: 9px;
+}
+
+#preview {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+#preview-content {
+    height: 100%;
+    width: 100%;
+}
+
+#selector {
+    list-style: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(32, 153, 153, 0.5) linear-gradient(90deg, rgba(0, 85, 85, 0.5), rgba(34, 0, 34, 0.5));
+    overflow: auto;
+}
+
+#selector li {
+    float: left;
+    padding: 10px;
+}
+
+#selector .image {
+    width: 50px;
+    height: 50px;
+    display: block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: 100% 100%;
+}
+
+svg {}
