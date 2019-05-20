@@ -1,6 +1,6 @@
 {
     "name": "imagemarker.js",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "An intuitive tool for adding annotates to the image",
     "main": "dist/imagemarker.js",
     "scripts": {
@@ -17,7 +17,7 @@
         "Marker"
     ],
     "author": "Rui NI <ranqus@gmail.com>",
-    "license": "TODO: Determine the license",
+    "license": "GPLv3",
     "bugs": {
         "url": "https://github.com/reinit/imagenotation/issues"
     },
