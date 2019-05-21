@@ -15,8 +15,14 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+'use strict';
+
 import { assertObjectType } from './common.js'
 
+/**
+ * Handler result
+ *
+ */
 export class HandlerResult {
     constructor(context, continueNext) {
         this.context = context
@@ -24,13 +30,33 @@ export class HandlerResult {
     }
 }
 
+/**
+ * User control manager
+ *
+ */
 export class UserCtl {
+    /**
+     * constructor
+     *
+     * @param {Object} rootElement The root element which the control handler
+     *                              will be binded to
+     * @param {Events} events Event manager
+     *
+     */
     constructor(rootElement, events) {
         this.el = rootElement
         this.events = events
         this.listeners = {}
     }
 
+    /**
+     * Listen to the given UI control listener set
+     *
+     * @param {Object} listeners Listeners set
+     * @param {Object} data Context data which will be delievered to control
+     *                      listeners when control event is fired
+     *
+     */
     listens(listeners, data) {
         let self = this
 
@@ -60,7 +86,7 @@ export class UserCtl {
 
                             if (!r.continue) {
                                 this.events.fire('control.fired', k)
-                                
+
                                 return
                             }
 
@@ -82,6 +108,12 @@ export class UserCtl {
         }
     }
 
+    /**
+     * Remove UI control listener set
+     *
+     * @param {Object} listeners Listeners set
+     *
+     */
     removes(listeners) {
         let self = this
 
@@ -116,6 +148,10 @@ export class UserCtl {
         }
     }
 
+    /**
+     * Destroy current user control manager
+     *
+     */
     teardown() {
         for (let k in this.listeners) {
             this.el.removeEventListener(k, this.listeners[k].handler)

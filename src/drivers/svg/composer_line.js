@@ -15,6 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+'use strict';
+
 import { assertType } from '../../imagemarker/common.js'
 import { drawLine } from '../../imagemarker/stage.js'
 import { Composer as ParentComposer } from './composer.js'

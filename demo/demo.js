@@ -161,6 +161,11 @@ function drawer(composeType) {
 
             setTimeout(() => {
                 drawn.remove()
+
+                if (lastDrawn !== drawn) {
+                    return
+                }
+
                 lastDrawn = null
                 renewLastDim()
             }, 10000)

@@ -15,14 +15,23 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+'use strict';
+
 import Exception from './exception.js'
 
-export class IncompatibilityContextException extends Exception {
+export class IncompatibleContextException extends Exception {
     constructor(msg) {
         super(msg + ", the web browser maybe incompatible")
     }
 }
 
+/**
+ * Perform the compatibility test
+ *
+ * @throws {IncompatibleContextException} When current running context is
+ *                                        incompatibiable with ImageMarker
+ *
+ */
 export function test() {
     try {
         if (typeof window !== 'object') {
@@ -45,6 +54,6 @@ export function test() {
             throw '`window.document.implementation` is not a function'
         }
     } catch(e) {
-        throw new IncompatibilityContextException(e)
+        throw new IncompatibleContextException(e)
     }
 }

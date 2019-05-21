@@ -15,6 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+'use strict';
+
 import Exception from './exception.js'
 
 export class UnexpectedTypeException extends Exception {
@@ -24,6 +26,14 @@ export class UnexpectedTypeException extends Exception {
     }
 }
 
+/**
+ * Assert given type is the expected one
+ *
+ * @param given Given type
+ * @param expected Expected type
+ * @throws {UnexpectedTypeException} When the assertion is false
+ *
+ */
 export function assertType(given, expected) {
     if (typeof given === expected) {
         return
@@ -32,6 +42,14 @@ export function assertType(given, expected) {
     throw new UnexpectedTypeException(typeof given, expected)
 }
 
+/**
+ * Assert given object is the expected type
+ *
+ * @param {Object} given Given type
+ * @param {Object} expected Expected type
+ * @throws {UnexpectedTypeException} When the assertion is false
+ *
+ */
 export function assertObjectType(given, expected) {
     if (given instanceof expected) {
         return
@@ -40,12 +58,28 @@ export function assertObjectType(given, expected) {
     throw new UnexpectedTypeException(typeof given, expected)
 }
 
+/**
+ * Test whether or not given object is a HTML element
+ *
+ * @param {Object} el Element
+ * @returns {boolean} Whether or not it's a HTML element
+ *
+ */
 export function isHTMLElement(el) {
-    return el &&
-        (el instanceof HTMLDocument ||
+    return el && (el instanceof HTMLDocument ||
             (typeof el === 'object' && el.nodeType === 1))
 }
 
+/**
+ * Merge the given value with the default value
+ *
+ * @param {Object} def Default value
+ * @param {Object} val Given value
+ * @returns {Object} Merged object
+ * @throws {UnexpectedTypeException} When the data type in default value failed
+ *                                   to match the one inside of the given one.
+ *
+ */
 export function filterDefault(def, val) {
     let obj = {}
 

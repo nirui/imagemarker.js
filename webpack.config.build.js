@@ -18,7 +18,6 @@
 const
     webpack = require('webpack'),
     path = require('path')
-    minifyPlugin = require("babel-minify-webpack-plugin")
 
 module.exports = {
     entry: {
@@ -26,8 +25,18 @@ module.exports = {
         svg: path.join(__dirname, 'src', 'drivers', 'svg', 'svg.js')
     },
     output: {
-        path:  path.join(__dirname, 'dist'),
+        library: '[name]',
+        libraryTarget: 'umd',
+        path: path.join(__dirname, 'dist'),
         filename: '[name].js'
+    },
+    externals: {
+        lodash: {
+            commonjs: 'lodash',
+            commonjs2: 'lodash',
+            amd: 'lodash',
+            root: '_'
+        }
     },
     module: {
         rules: [
@@ -38,12 +47,11 @@ module.exports = {
             }
         ]
     },
+    optimization: {},
     plugins: [
-        new minifyPlugin(),
         new webpack.BannerPlugin({
             banner: 'imagemarker.js '+
                 'Copyright (C) 2019 Rui NI <ranqus@gmail.com>'
         })
-    ],
-    optimization: {}
+    ]
 }

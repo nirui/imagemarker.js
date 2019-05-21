@@ -15,11 +15,29 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+'use strict';
+
+/**
+ * Base Exception
+ *
+ */
 export default class Exception {
+    /**
+     * constructor
+     *
+     * @param {string} message The error message
+     *
+     */
     constructor(message) {
         this.message = message
     }
 
+    /**
+     * Return the error message into a string
+     *
+     * @returns {string} The error message
+     *
+     */
     toString() {
         return '[ImageMarker] ' + this.message
     }

@@ -15,11 +15,29 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+'use strict';
+
+/**
+ * Event manager
+ *
+ */
 export class Events {
+    /**
+     * constructor
+     *
+     */
     constructor() {
         this.events = {}
     }
 
+    /**
+     * Insert new event listener into a type
+     *
+     * @param {string} type Type of the target event
+     * @param {function} listener The listener that will be called when event
+     *                            fired
+     *
+     */
     add(type, listener) {
         if (typeof this.events[type] !== 'object') {
             this.events[type] = []
@@ -28,6 +46,14 @@ export class Events {
         this.events[type].push(listener)
     }
 
+    /**
+     * Remove the given event listener from a type
+     *
+     * @param {string} type Type of the target event
+     * @param {function} listener The listener which was going to be called when
+     *                            event fired
+     *
+     */
     remove(type, listener) {
         if (typeof this.events[type] !== 'object') {
             return
@@ -43,6 +69,13 @@ export class Events {
         }
     }
 
+    /**
+     * Fire a event
+     *
+     * @param {string} type Event type
+     * @param data Event data
+     *
+     */
     fire(type, data) {
         if (typeof this.events[type] !== 'object') {
             return
@@ -53,7 +86,11 @@ export class Events {
         }
     }
 
-    clear() {
+    /**
+     * Remove all event listeners
+     *
+     */
+    teardown() {
         this.events = {}
     }
 }

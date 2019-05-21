@@ -15,6 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+'use strict';
+
 import Exception from '../../imagemarker/exception.js'
 import { isHTMLElement, filterDefault } from '../../imagemarker/common.js'
 import { drawPath, drawLine, drawRect, drawEllipse } from '../../imagemarker/stage.js'

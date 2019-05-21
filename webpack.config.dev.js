@@ -19,8 +19,7 @@ const
     webpack = require('webpack'),
     path = require('path'),
     htmlWebpackPlugin = require('html-webpack-plugin'),
-    miniCssExtractPlugin = require("mini-css-extract-plugin"),
-    minifyPlugin = require("babel-minify-webpack-plugin")
+    miniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
     entry: {
@@ -63,6 +62,7 @@ module.exports = {
             }
         ]
     },
+    optimization: {},
     plugins: [
         new htmlWebpackPlugin({
             template: path.join(__dirname, 'demo', 'demo.htm'),
@@ -71,8 +71,6 @@ module.exports = {
         new miniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[name].css"
-        }),
-        new minifyPlugin()
-    ],
-    optimization: {}
+        })
+    ]
 }
