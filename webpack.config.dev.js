@@ -62,7 +62,9 @@ module.exports = {
             }
         ]
     },
-    optimization: {},
+    optimization: {
+        minimize: false
+    },
     plugins: [
         new htmlWebpackPlugin({
             template: path.join(__dirname, 'demo', 'demo.htm'),

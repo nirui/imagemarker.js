@@ -47,7 +47,9 @@ module.exports = {
             }
         ]
     },
-    optimization: {},
+    optimization: {
+        minimize: false
+    },
     plugins: [
         new webpack.BannerPlugin({
             banner: 'imagemarker.js '+

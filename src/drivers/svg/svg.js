@@ -113,7 +113,7 @@ class Background {
         let sRect = this.svg.rect(),
             z = this.background.zoom(sRect.width, sRect.height).fit
 
-        if (z < 1 || this.background.zoomable(sRect.width, sRect.height)) {
+        if (z < 1 || !this.background.zoomable(sRect.width, sRect.height)) {
             z = 1
         }
 
