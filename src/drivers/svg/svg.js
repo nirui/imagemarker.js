@@ -213,20 +213,24 @@ function buildPathElementProperties(initialData, config) {
 }
 
 export class SVG {
-    constructor(id) {
+    constructor(el) {
         if (!isSupported()) {
             throw new UnsupportedException()
         }
 
-        // this.parent must be a HTML DOM object
-        this.parent = document.getElementById(id)
+        if (isHTMLElement(el)) {
+            this.parent = el
+        } else {
+            // this.parent must be a HTML DOM object
+            this.parent = document.getElementById(el)
 
-        if (!this.parent) {
-            throw new ParentElementNotFoundException(id)
-        }
+            if (!this.parent) {
+                throw new ParentElementNotFoundException(el)
+            }
 
-        if (!isHTMLElement(this.parent)) {
-            throw new ParentElementMustBeAHTMLElement(id, this.parent)
+            if (!isHTMLElement(this.parent)) {
+                throw new ParentElementMustBeAHTMLElement(el, this.parent)
+            }
         }
 
         this.zoomLevel = 1
@@ -317,7 +321,7 @@ export class SVG {
         }
 
         let newPictureWidth =
-                (this.picture.width() / this.zoomLevel) + zoomShift,
+            (this.picture.width() / this.zoomLevel) + zoomShift,
             newPictureHeight =
                 (this.picture.height() / this.zoomLevel) + zoomShift
 

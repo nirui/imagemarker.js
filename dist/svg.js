@@ -4086,22 +4086,26 @@ function buildPathElementProperties(initialData, config) {
 }
 
 var SVG = function () {
-    function SVG(id) {
+    function SVG(el) {
         (0, _classCallCheck3.default)(this, SVG);
 
         if (!isSupported()) {
             throw new UnsupportedException();
         }
 
-        // this.parent must be a HTML DOM object
-        this.parent = document.getElementById(id);
+        if ((0, _common.isHTMLElement)(el)) {
+            this.parent = el;
+        } else {
+            // this.parent must be a HTML DOM object
+            this.parent = document.getElementById(el);
 
-        if (!this.parent) {
-            throw new ParentElementNotFoundException(id);
-        }
+            if (!this.parent) {
+                throw new ParentElementNotFoundException(el);
+            }
 
-        if (!(0, _common.isHTMLElement)(this.parent)) {
-            throw new ParentElementMustBeAHTMLElement(id, this.parent);
+            if (!(0, _common.isHTMLElement)(this.parent)) {
+                throw new ParentElementMustBeAHTMLElement(el, this.parent);
+            }
         }
 
         this.zoomLevel = 1;
