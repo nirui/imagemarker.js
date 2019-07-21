@@ -1,6 +1,6 @@
 {
     "name": "imagemarker.js",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "An intuitive tool for adding annotates to the image",
     "main": "imagemarker.js",
     "scripts": {
